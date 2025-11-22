@@ -12,3 +12,4 @@ package-lock.json
 package.json
 gulpfile.js
 .gitignore
+themes/*/assets/*
