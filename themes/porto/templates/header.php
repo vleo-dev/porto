@@ -1,13 +1,10 @@
 <header>
-	<ul>
-		<li>
-			Home
-		</li>
-		<li>
-			Bla bla
-		</li>
-		<li>
-			Autres
-		</li>
-	</ul>
+  <h1>Bienvenue sur mon site web</h1>
+  <nav>
+    <ul>
+      <li><a href="#">Accueil</a></li>
+      <li><a href="#">À propos</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
 </header>

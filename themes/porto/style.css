@@ -1,5 +1,15 @@
-.header {
-  display: inline;
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: var(--wp--preset--color--dark-gray);
+}
+header ul {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
 }
 
 .page-template-front-page .projects .projectsSwiper {
@@ -32,6 +42,14 @@ body main section.skills {
   background-color: var(--wp--preset--color--second-bg);
   font-size: var(--wp--preset--font-size--x-large);
   line-height: 1.3;
+  height: 600px;
+}
+body main section.more {
+  color: var(--wp--preset--color--third-typo);
+  background-color: var(--wp--preset--color--third-bg);
+  font-size: var(--wp--preset--font-size--x-large);
+  line-height: 1.3;
+  height: 600px;
 }
 body main .container {
   width: 100%;
