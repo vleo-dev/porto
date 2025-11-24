@@ -1,0 +1,24 @@
+.page-template-front-page{
+	.presentation{
+
+	}
+
+	.projects{
+		.projectsSwiper{
+			height: 600px;
+			.swiper-slide{
+				.web-content{
+					position: relative;
+					&__infos{
+						position: relative;
+						z-index: 10;
+					}
+					&__img{
+						position: absolute;
+						inset: 0;
+					}
+				}
+			}
+		}
+	}
+}

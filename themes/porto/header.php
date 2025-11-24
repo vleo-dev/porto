@@ -35,4 +35,4 @@
 	<?php wp_body_open() ?>
 
 		<?php /* HEADER */ ?>
-		<?php get_template_part( 'parts/header' ) ?>
+		<?php get_template_part( 'header' ) ?>
