@@ -45,24 +45,34 @@
 			],
 			"palette": [
 				{
-					"color": "#ca2775",
-					"name": "Primary",
-					"slug": "primary"
+					"color": "#244230",
+					"name": "Main typo",
+					"slug": "main-typo"
 				},
 				{
-					"color": "#ef8101",
-					"name": "Secondary",
-					"slug": "secondary"
+					"color": "#dbe9df",
+					"name": "Main background",
+					"slug": "main-bg"
 				},
 				{
-					"color": "#243f92",
-					"name": "Tertiary",
-					"slug": "tertiary"
+					"color": "#eddfca",
+					"name": "Second typo",
+					"slug": "second-typo"
 				},
 				{
-					"color": "#80cff5",
-					"name": "Quaternary",
-					"slug": "quaternary"
+					"color": "#7c4e2f",
+					"name": "Second background",
+					"slug": "second-bg"
+				},
+				{
+					"color": "#344354;",
+					"name": "Third typo",
+					"slug": "third-typo"
+				},
+				{
+					"color": "#d6e1f2",
+					"name": "Third background",
+					"slug": "third-bg"
 				},
 				{
 					"color": "#ffffff",
@@ -409,4 +419,4 @@
 			"lineHeight": "1.2"
 		}
 	}
-}     
+}

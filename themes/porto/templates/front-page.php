@@ -14,15 +14,14 @@
 	$webs = get_field( 'webs_elements' ); 
 ?>
 <main>
-	<h1><?php echo get_the_title(); ?>
-
-	<section class="presentation container">
-		<h2><?php echo $title; ?></h2>
-		<p class="presentation__desc"><?php echo $main_desc; ?></p>
+	<section class="presentation">
+		<div class="container">
+			<h1><?php echo $title; ?></h1>
+			<p class="presentation__desc"><?php echo $main_desc; ?></p>
+		</div>
 	</section>
 
 	<section class="projects">
-		<h2><?php echo $car_title; ?></h2>
 		<?php if ( !empty( $webs ) ): ?>
 			<div class="swiper projectsSwiper">
 				<div class="swiper-wrapper">
@@ -34,12 +33,14 @@
 						?>
 						<div class="swiper-slide">
 							<div class="web-content">
-								<h3><?php echo $title; ?></h3>
-								<div class="web-content__short">
-									<p><?php echo $web_short; ?></p>
+								<div class="web-content__infos">
+									<h3><?php echo $title; ?></h3>
+									<div class="web-content__infos__short">
+										<p><?php echo $web_short; ?></p>
+									</div>
 								</div>
 								<div class="web-content__img">
-									<img src="<?php echo $web_img[ 'url' ]; ?>">
+									<img src="<?php echo $web_img[ 'url' ]; ?>"/>
 								</div>
 							</div>
 						</div>
@@ -51,7 +52,9 @@
 	</section>
 
 	<section class="skills">
-		<?php echo 'skills'; ?>
+		<div class="container">
+			<?php echo 'skills'; ?>
+		</div>
 	</section>
 </main>
 
