@@ -7,22 +7,73 @@
 	get_fields();
 	get_header();
 
-	//ACF
+	$main_img = get_field( 'main_img' ); 
+	$main_desc = get_field( 'main_desc' );
+
 	$title = get_field( 'st01_title' );
-	$main_desc = get_field( 'st01_desc' );
+	$st01_desc = get_field( 'st01_desc' );
+
+	$skills = get_terms([
+    	'taxonomy' => 'skill',
+    	'hide_empty' => false,
+	]);
+
 	$car_title = get_field( 'car_title' );
 	$webs = get_field( 'webs_elements' ); 
+	
 ?>
-<main>
-	<section class="presentation">
-		<div class="container">
-			<h1><?php echo $title; ?></h1>
-			<p class="presentation__desc"><?php echo $main_desc; ?></p>
+
+<main class="hp_content">
+
+	<section class="main-pres">
+		<div class="mains-pres__img">
+			<img src="<?php echo $main_img['url']; ?>" />
+		</div>
+
+		<div class="main-pres__desc">
+			<p><?php echo $main_desc; ?></p>
+
+			<div class="main-pres__desc__scroll">
+				<i class="fas fa-arrow-circle-down"></i>
+			</div>
 		</div>
 	</section>
 
+	<section class="presentation" id="presentation">
+		<div class="container reveal">
+			<h2><?php echo $title; ?></h2>
+			<p class="presentation__desc"><?php echo $st01_desc; ?></p>
+		</div>
+		<a class="btn btn-light" href="#skills"><?php echo 'Continuer'; ?></a>
+	</section>
+
+	<?php if ( !empty($skills) && !is_wp_error($skills) ): ?>
+		<section class="skills" id="skills">
+			<div class="container reveal">
+				<h2><?php echo "Compétences"; ?></h2>
+				<div class="skills-grid">
+					<?php foreach($skills as $skill):
+						$desc = get_field('desc', $skill);
+						$fa_picto = get_field('fa_picto', $skill);
+					?>
+						<div class="skill-card">
+							<?php if ($fa_picto): ?>
+								<i class="<?php echo esc_attr($fa_picto); ?>"></i>
+							<?php endif; ?>
+							<h3><?php echo esc_html($skill->name); ?></h3>
+							<?php if ($skill->description): ?>
+								<p><?php echo esc_html($skill->description); ?></p>
+							<?php endif; ?>
+						</div>
+					<?php endforeach; ?>
+				</div>
+			</div>
+		</section>
+	<?php endif; ?>
+
 	<section class="projects">
 		<?php if ( !empty( $webs ) ): ?>
+			<h2><?php echo "Projets"; ?></h2>
 			<div class="swiper projectsSwiper">
 				<div class="swiper-wrapper">
 					<?php foreach( $webs as $web ) : ?>
@@ -33,14 +84,12 @@
 						?>
 						<div class="swiper-slide">
 							<div class="web-content">
-								<div class="web-content__infos">
-									<h3><?php echo $title; ?></h3>
-									<div class="web-content__infos__short">
-										<p><?php echo $web_short; ?></p>
-									</div>
-								</div>
+								
 								<div class="web-content__img">
-									<img src="<?php echo $web_img[ 'url' ]; ?>"/>
+									<img src="<?php echo $web_img['url']; ?>" alt="<?php echo $web_title; ?>"/>
+									<div class="web-content__infos">
+										<h3 class="web-content__title"><?php echo $web_title; ?></h3>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -51,14 +100,14 @@
 		<?php endif; ?>
 	</section>
 
-	<section class="skills">
-		<div class="container">
+	<section class="history">
+		<div class="container reveal">
 			Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
 		</div>
 	</section>
 
-	<section class="more">
-		<div class="container">
+	<section class="contact">
+		<div class="container reveal">
 			Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
 		</div>
 	</section>

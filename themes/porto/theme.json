@@ -259,16 +259,16 @@
 				{
 					"fluid": false,
 					"name": "18px",
-					"size": "1.125rem",
+					"size": "1.35rem",
 					"slug": "large"
 				},
 				{
 					"fluid": {
 						"max": "1.875rem",
-						"min": "1.25rem"
+						"min": "1.35rem"
 					},
 					"name": "20px ⇄ 30px",
-					"size": "1.25rem",
+					"size": "1.35rem",
 					"slug": "x-large"
 				},
 				{
