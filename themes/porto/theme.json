@@ -45,14 +45,14 @@
 			],
 			"palette": [
 				{
-					"color": "#244230",
+					"color": "#F4EFFF",
 					"name": "Main typo",
 					"slug": "main-typo"
 				},
 				{
-					"color": "#dbe9df",
-					"name": "Main background",
-					"slug": "main-bg"
+					"color": "#0B0C1F",
+					"name": "Main Color",
+					"slug": "main-color"
 				},
 				{
 					"color": "#eddfca",
@@ -60,19 +60,14 @@
 					"slug": "second-typo"
 				},
 				{
-					"color": "#8C7154",
-					"name": "Second background",
-					"slug": "second-bg"
+					"color": "#1A1F3D",
+					"name": "Second Color",
+					"slug": "second-color"
 				},
 				{
-					"color": "#344354;",
-					"name": "Third typo",
-					"slug": "third-typo"
-				},
-				{
-					"color": "#d6e1f2",
-					"name": "Third background",
-					"slug": "third-bg"
+					"color": "#6C5BFF",
+					"name": "Third Color",
+					"slug": "third-color"
 				},
 				{
 					"color": "#ffffff",

@@ -1,6 +1,6 @@
 
 body{
-	color: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--main-typo);
 	font-family: var(--wp--preset--font-family--base);
 
 	 h1, h2, h3, h4, h5, h6 {
@@ -8,17 +8,31 @@ body{
 	}
 
 	h2{
+		position: relative;
+		display: inline-block;
 		font-family: var(--wp--preset--font-family--base);
 		font-size: var(--wp--preset--font-size--xx-large);
 		text-align: center;
 		margin-bottom: 2rem;
+
+		&::after {
+			content: "";
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			bottom: -20px; // plus bas sous le titre
+			width: 120px; // plus large
+			height: 6px; // un poil plus épais
+			background-color: #F4EFFF;
+			border-radius: 15px;
+		}
 	}
 
 	.btn {
 		position: relative;
 		display: inline-block;
 		padding: 12px 28px;
-		border-radius: 8px;
+		border-radius: 30px;
 		font-weight: 600;
 		text-decoration: none;
 		overflow: hidden;
@@ -26,12 +40,12 @@ body{
 		z-index: 1;
 
 		&.btn-light {
-			background-color: #878787; 
-			color: #fff;
+			background-color: var(--wp--preset--color--third-color);
+			color: var(--wp--preset--color--main-typo);
 
 			&:hover {
-				color: #fff;
-				box-shadow: 0 0 20px rgba(135, 135, 135, 0.5); 
+				color: var(--wp--preset--color--main-typo);
+				box-shadow: 0 0 20px rgba(135, 135, 135, 0.75); 
 				transform: translateY(-2px); 
 			}
 		}
