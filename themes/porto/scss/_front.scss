@@ -82,6 +82,7 @@
 			font-size: var(--wp--preset--font-size--large);
 			line-height: 1.3;
 			text-align: center;
+			padding-bottom: 3rem;
 
 			.container {
 				.btn {
@@ -120,8 +121,9 @@
 		}
 
 		.projects {
-			background-color: var(--wp--preset--color--second-bg);
-			color: var(--wp--preset--color--second-typo);
+background-color: #ffffff;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Ccircle cx='10' cy='10' r='1.5' fill='%23244230' fill-opacity='0.3'/%3E%3Ccircle cx='60' cy='15' r='2' fill='%23244230' fill-opacity='0.25'/%3E%3Ccircle cx='30' cy='50' r='1' fill='%23244230' fill-opacity='0.2'/%3E%3Ccircle cx='70' cy='70' r='0.8' fill='%23244230' fill-opacity='0.15'/%3E%3Ccircle cx='50' cy='40' r='1.2' fill='%23244230' fill-opacity='0.2'/%3E%3C/svg%3E");
+	background-repeat: repeat;
 			font-size: var(--wp--preset--font-size--large);
 			line-height: 1.3;
 			.projectsSwiper {
@@ -192,9 +194,7 @@
 			background-color: #ffffff;
 			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpolygon points='20,0 40,40 0,40' fill='%238C7154' fill-opacity='0.05'/%3E%3Cpolygon points='10,20 20,40 0,40' fill='%238C7154' fill-opacity='0.05'/%3E%3Cpolygon points='30,20 40,40 20,40' fill='%238C7154' fill-opacity='0.05'/%3E%3C/svg%3E");
 			background-repeat: repeat;
-			h2{
-				color: var(--wp--preset--color--main-color);
-			}
+			padding-bottom: 3rem;
 			.skills-grid {
 				display: grid;
 				gap: 1.5rem;

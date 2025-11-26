@@ -13,18 +13,27 @@ body{
 		font-family: var(--wp--preset--font-family--base);
 		font-size: var(--wp--preset--font-size--xx-large);
 		text-align: center;
-		margin-bottom: 2rem;
+		margin-bottom: 2.5rem;
+		width: 100%;
 
 		&::after {
 			content: "";
 			position: absolute;
 			left: 50%;
 			transform: translateX(-50%);
-			bottom: -20px; // plus bas sous le titre
+			bottom: -16px; // plus bas sous le titre
 			width: 120px; // plus large
 			height: 6px; // un poil plus épais
 			background-color: #F4EFFF;
 			border-radius: 15px;
+		}
+
+		&.dark {
+			color: var(--wp--preset--color--main-color);
+		}
+
+		&.dark::after {
+			background-color: var(--wp--preset--color--main-color);
 		}
 	}
 
