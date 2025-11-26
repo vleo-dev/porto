@@ -1,24 +1,210 @@
-.page-template-front-page{
-	.presentation{
+.page-template-front-page {
+	.hp_content {
+		.main-pres {
+			position: relative;
+			height: 100vh;
+			overflow: hidden;
 
-	}
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			padding-left: 3rem;
 
-	.projects{
-		.projectsSwiper{
-			height: 600px;
-			.swiper-slide{
-				.web-content{
-					position: relative;
-					&__infos{
-						position: relative;
-						z-index: 10;
-					}
-					&__img{
-						position: absolute;
-						inset: 0;
-					}
+			.mains-pres__img {
+				img {
+					position: absolute;
+					inset: 0;
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					filter: brightness(0.8) saturate(0.7);
+					z-index: 1;
 				}
 			}
+
+			&__desc {
+				position: relative;
+				z-index: 3;
+				color: #fff;
+				max-width: 33%;
+				font-size: 1.25rem;
+				line-height: 1.6;
+				padding: 0 40px;
+				text-align: center;
+				font-size: var(--wp--preset--font-size--x-large);
+				&__scroll {
+					i {
+						font-size: 5rem;
+						opacity: 0.85;
+						transition: transform .3s ease, opacity .3s ease;
+						cursor: pointer;
+
+						&:hover {
+							transform: translateY(4px);
+							opacity: 1;
+						}
+					}
+				}
+				
+			}
+
+			
+
+			&::before {
+				content: "";
+				position: absolute;
+				inset: 0;
+				background: rgba(0, 0, 0, 0.2);
+				z-index: 2;
+			}
+		}
+
+		.presentation {
+			color: var(--wp--preset--color--main-typo);
+			background-color: var(--wp--preset--color--main-bg);
+			font-size: var(--wp--preset--font-size--large);
+			line-height: 1.3;
+			text-align: center;
+		}
+
+		.projects {
+			background-color: var(--wp--preset--color--second-bg);
+			color: var(--wp--preset--color--second-typo);
+			padding: 1rem 0;
+			.projectsSwiper {
+					width: 100%;
+					height: 50vh;
+			
+					.swiper-wrapper {
+						overflow: visible;
+					}
+			
+					.swiper-slide {
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						height: 100%;
+						background: transparent !important;
+			
+						.web-content {
+							width: auto;
+							height: auto;
+							border-radius: 12px;
+							overflow: hidden;
+							position: relative;
+			
+							.web-content__img {
+								width: 100%;
+								height: 100%;
+			
+								img {
+									width: 100%;
+									height: 100%;
+									object-fit: cover;
+									transition: transform 0.5s ease, filter 0.5s ease;
+								}
+			
+								.web-content__infos {
+									position: absolute;
+									inset: 0;
+									display: flex;
+									justify-content: center;
+									align-items: center;
+									text-align: center;
+									color: #fff;
+									background: rgba(0, 0, 0, 0.5);
+									opacity: 0;
+									transition: opacity 0.3s ease;
+									padding: 1rem;
+								}
+							}
+						}
+			
+						&.swiper-slide-active {
+							.web-content__img img {
+								transform: scale(1.05);
+								filter: brightness(0.7);
+							}
+			
+							.web-content__img .web-content__infos {
+								opacity: 1;
+							}
+						}
+					}
+				}
+		}
+
+
+		.skills {
+			padding: 2rem 0;
+			h2{
+				color: var(--wp--preset--color--third-typo);
+			}
+			.skills-grid {
+				display: grid;
+				gap: 1.5rem;
+				grid-template-columns: repeat(1, 1fr);
+
+				@media (min-width: 768px) {
+					grid-template-columns: repeat(2, 1fr);
+				}
+
+				@media (min-width: 1200px) {
+					grid-template-columns: repeat(4, 1fr);
+				}
+			}
+
+			.skill-card {
+				background-color: var(--wp--preset--color--third-bg);
+				padding: 1.5rem;
+				text-align: center;
+				border-radius: 12px;
+				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+				i {
+					font-size: 2rem;
+					margin-bottom: 0.5rem;
+					display: block;
+					color: var(--wp--preset--color--third-typo);
+				}
+
+				h3 {
+					margin: 0.5rem 0;
+					font-size: 1.2rem;
+					color: var(--wp--preset--color--third-typo);
+				}
+
+				p {
+					font-size: 0.95rem;
+					line-height: 1.4;
+					color: var(--wp--preset--color--third-typo);
+				}
+
+				&:hover {
+					transform: translateY(-4px);
+					box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+				}
+			}
+		}
+
+		.more {
+			color: var(--wp--preset--color--third-typo);
+			background-color: var(--wp--preset--color--third-bg);
+			font-size: var(--wp--preset--font-size--large);
+			line-height: 1.3;
+			height: 600px;
+		}
+
+		.reveal {
+			opacity: 0;
+			transform: translateY(30px);
+			transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+		}
+
+		.reveal.is-visible {
+			opacity: 1;
+			transform: translateY(0);
 		}
 	}
 }
