@@ -37,14 +37,18 @@
 				<i class="fas fa-arrow-circle-down"></i>
 			</div>
 		</div>
+		<div class="moon"></div>
 	</section>
 
 	<section class="presentation" id="presentation">
 		<div class="container reveal">
 			<h2><?php echo $title; ?></h2>
 			<p class="presentation__desc"><?php echo $st01_desc; ?></p>
+			<a class="btn btn-light" href="#skills"><?php echo 'Continuer'; ?></a>
 		</div>
-		<a class="btn btn-light" href="#skills"><?php echo 'Continuer'; ?></a>
+		<span class="floating-shape shape-1"></span>
+		<span class="floating-shape shape-2"></span>
+		<span class="floating-shape shape-3"></span>
 	</section>
 
 	<?php if ( !empty($skills) && !is_wp_error($skills) ): ?>
