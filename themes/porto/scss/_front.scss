@@ -66,9 +66,8 @@
 				border-radius: 50%;
 				pointer-events: none;
 				z-index: 10;
-			
-				/* Transform géré par la JS */
 				transform: translate(0, 0) scale(1);
+				box-shadow: 0px 0px 40px #fff, 0px 0px 80px 2px #fff;
 			}
 		}
 
@@ -121,9 +120,9 @@
 		}
 
 		.projects {
-background-color: #ffffff;
-	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Ccircle cx='10' cy='10' r='1.5' fill='%23244230' fill-opacity='0.3'/%3E%3Ccircle cx='60' cy='15' r='2' fill='%23244230' fill-opacity='0.25'/%3E%3Ccircle cx='30' cy='50' r='1' fill='%23244230' fill-opacity='0.2'/%3E%3Ccircle cx='70' cy='70' r='0.8' fill='%23244230' fill-opacity='0.15'/%3E%3Ccircle cx='50' cy='40' r='1.2' fill='%23244230' fill-opacity='0.2'/%3E%3C/svg%3E");
-	background-repeat: repeat;
+			background-color: var(--wp--preset--color--main-typo);
+			//background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Ccircle cx='10' cy='10' r='1.5' fill='%23244230' fill-opacity='0.3'/%3E%3Ccircle cx='60' cy='15' r='2' fill='%23244230' fill-opacity='0.25'/%3E%3Ccircle cx='30' cy='50' r='1' fill='%23244230' fill-opacity='0.2'/%3E%3Ccircle cx='70' cy='70' r='0.8' fill='%23244230' fill-opacity='0.15'/%3E%3Ccircle cx='50' cy='40' r='1.2' fill='%23244230' fill-opacity='0.2'/%3E%3C/svg%3E");
+			background-repeat: repeat;
 			font-size: var(--wp--preset--font-size--large);
 			line-height: 1.3;
 			.projectsSwiper {
@@ -243,14 +242,124 @@ background-color: #ffffff;
 			}
 		}
 
-		.more {
-			color: var(--wp--preset--color--third-typo);
-			background-color: var(--wp--preset--color--third-bg);
-			font-size: var(--wp--preset--font-size--large);
-			line-height: 1.3;
-			height: 600px;
+		.history {
+			padding: 60px 0;
+			background-color: var(--wp--preset--color--main-color);
+
+			h2 {
+				text-align: center;
+				margin-bottom: 48px;
+			}
+
+			.history__timeline {
+				position: relative;
+				width: $timeline-width;
+				margin: 0 auto;
+
+				&::before {
+					content: "";
+					position: absolute;
+					top: 0;
+					left: 50%;
+					transform: translateX(-50%);
+					width: 3px;
+					height: 100%;
+					background: #ccc;
+					z-index: 1;
+				}
+
+				.history__timeline__item {
+					position: relative;
+					width: 100%;
+					min-height: 120px;
+					padding: 60px 0;
+					display: block;
+
+				.dot {
+						position: absolute;
+						left: 50%;
+						top: 50%;
+						transform: translate(-50%, -50%);
+						z-index: 3;
+
+						&__image {
+							width: $dot-size;
+							height: $dot-size;
+							border-radius: 50%;
+							overflow: hidden; 
+							border: $dot-border solid #fff;
+							box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+							background: #fff;
+							display: flex;
+							align-items: center;
+							justify-content: center;
+
+							.round-img {
+								width: 65%;
+								height: 65%;
+								object-fit: cover;
+								display: block;
+							}
+						}
+					}
+
+					.content {
+						position: absolute;
+						top: 50%;
+						transform: translateY(-50%);
+						max-width: $max-content-width;
+						z-index: 2;
+						line-height: 1.4;
+					}
+
+					/* ---- texte à GAUCHE (items impairs) ---- */
+					&:nth-child(odd) .content {
+						right: calc(50% + #{$gap});
+						text-align: right;
+					}
+
+					/* ---- texte à DROITE (items pairs) ---- */
+					&:nth-child(even) .content {
+						left: calc(50% + #{$gap});
+						text-align: left;
+					}
+				}
+			}
+
+			@media (max-width: 768px) {
+				.history__timeline {
+					width: 100%;
+
+					&::before {
+						left: 40px;
+					}
+
+					.history__timeline__item {
+						min-height: auto;
+						padding: 20px 0;
+
+						.dot {
+							left: 40px;
+							top: 16px;
+							transform: translate(0, 0);
+						}
+
+						.content {
+							position: relative !important;
+							top: auto !important;
+							transform: none !important;
+							margin-left: 80px;
+							width: calc(100% - 100px);
+							text-align: left !important;
+						}
+					}
+				}
+			}
 		}
 
+		.contact{
+			background-color: var(--wp--preset--color--main-typo);
+		}
 		.reveal {
 			opacity: 0;
 			transform: translateY(30px);
@@ -275,5 +384,4 @@ background-color: #ffffff;
 		transform: translate(0, -20px);
 	}
 
-	// plus de mouvement
 }
