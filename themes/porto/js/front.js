@@ -2,29 +2,33 @@
 
     const projectsSwiper = document.querySelectorAll('.projectsSwiper .swiper-slide');
 
-    if ( projectsSwiper.length > 1 ) {
+    if (projectsSwiper.length > 1) {
         const projectsSwiperMain = new Swiper('.projectsSwiper', {
-            effect: 'coverflow',
-            grabCursor: true,
-            centeredSlides: true,
             loop: true,
-            slidesPerView: 3,
-            spaceBetween: 80,
-            coverflowEffect: {
-                rotate: 25,
-                stretch: 0,
-                depth: 200,
-                modifier: 1,
-                slideShadows: false,
-            },
+            spaceBetween: 30,
+            slidesPerView: 1, // mobile par défaut
+
+            // breakpoints
             breakpoints: {
-                1024: { slidesPerView: 3 },
-                768: { slidesPerView: 2 },
-                0: { slidesPerView: 1 },
+                768: {  // tablette
+                    slidesPerView: 2
+                },
+                1024: { // desktop
+                    slidesPerView: 3
+                }
             },
-            pagination: { el: '.swiper-pagination', clickable: true },
+
+            // pagination désactivée
+            pagination: false,
+
+            // flèches
+            navigation: {
+                nextEl: '.projects__nav-next',
+                prevEl: '.projects__nav-prev',
+            },
         });
     }
+
 
     document.addEventListener("DOMContentLoaded", function () {
         const sections = document.querySelectorAll(".reveal");
