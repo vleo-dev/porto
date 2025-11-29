@@ -167,12 +167,47 @@ header .header__nav nav ul li:hover ul {
   font-size: var(--wp--preset--font-size--large);
   line-height: 1.3;
 }
+.page-template-front-page .hp_content .projects__desc {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+  padding: 0 1rem;
+  font-family: var(--wp--preset--font-family--base);
+}
+.page-template-front-page .hp_content .projects__desc p {
+  margin: 0;
+  color: var(--wp--preset--color--main-color);
+}
 .page-template-front-page .hp_content .projects .projectsSwiper {
   width: 100%;
-  height: 50vh;
+  height: 350px;
+  margin-bottom: 2rem;
+}
+.page-template-front-page .hp_content .projects .projectsSwiper .projects__nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 30;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  color: var(--wp--preset--color--main-color);
+}
+.page-template-front-page .hp_content .projects .projectsSwiper .projects__nav-prev {
+  left: 5px;
+}
+.page-template-front-page .hp_content .projects .projectsSwiper .projects__nav-next {
+  right: 5px;
 }
 .page-template-front-page .hp_content .projects .projectsSwiper .swiper-wrapper {
-  overflow: visible;
+  overflow: visible !important;
+  position: relative;
 }
 .page-template-front-page .hp_content .projects .projectsSwiper .swiper-slide {
   display: flex;
@@ -180,15 +215,16 @@ header .header__nav nav ul li:hover ul {
   align-items: center;
   height: 100%;
   background: transparent !important;
+  cursor: pointer;
 }
 .page-template-front-page .hp_content .projects .projectsSwiper .swiper-slide .web-content {
-  width: auto;
-  height: auto;
-  border-radius: 12px;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
-  position: relative;
+  border-radius: 15px;
 }
 .page-template-front-page .hp_content .projects .projectsSwiper .swiper-slide .web-content .web-content__img {
+  position: relative;
   width: 100%;
   height: 100%;
 }
@@ -196,27 +232,33 @@ header .header__nav nav ul li:hover ul {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease, filter 0.5s ease;
+  transition: transform 0.4s ease, filter 0.4s ease;
+  display: block;
 }
 .page-template-front-page .hp_content .projects .projectsSwiper .swiper-slide .web-content .web-content__img .web-content__infos {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  color: #fff;
-  background: rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  transition: opacity 0.3s ease;
   padding: 1rem;
+  text-align: center;
+  opacity: 0;
+  background: rgba(26, 31, 61, 0.45);
+  color: #fff;
+  transition: opacity 0.3s ease;
 }
-.page-template-front-page .hp_content .projects .projectsSwiper .swiper-slide.swiper-slide-active .web-content__img img {
+.page-template-front-page .hp_content .projects .projectsSwiper .swiper-slide:hover .web-content__infos {
+  opacity: 1 !important;
+  transform: translateY(0);
+}
+.page-template-front-page .hp_content .projects .projectsSwiper .swiper-slide:hover .web-content img {
   transform: scale(1.05);
   filter: brightness(0.7);
-}
-.page-template-front-page .hp_content .projects .projectsSwiper .swiper-slide.swiper-slide-active .web-content__img .web-content__infos {
-  opacity: 1;
 }
 .page-template-front-page .hp_content .skills {
   background-color: #ffffff;
@@ -372,6 +414,32 @@ header .header__nav nav ul li:hover ul {
 }
 .page-template-front-page .hp_content .contact {
   background-color: var(--wp--preset--color--main-typo);
+}
+.page-template-front-page .hp_content .contact .wpcf7-form label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: bold;
+}
+.page-template-front-page .hp_content .contact .wpcf7-form input,
+.page-template-front-page .hp_content .contact .wpcf7-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+.page-template-front-page .hp_content .contact .wpcf7-form input[type=submit] {
+  background-color: #1A1F3D;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.page-template-front-page .hp_content .contact .wpcf7-form input[type=submit]:hover {
+  background-color: #151933;
 }
 .page-template-front-page .hp_content .reveal {
   opacity: 0;

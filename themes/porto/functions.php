@@ -16,3 +16,4 @@ function vdev_enqueue_styles_scripts() {
 
 }
 add_action( 'wp_enqueue_scripts', 'vdev_enqueue_styles_scripts' );
+
