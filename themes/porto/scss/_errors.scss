@@ -1,0 +1,20 @@
+.error404 {
+	text-align: center;
+	color: var(--wp--preset--color--second-color);
+}
+
+.error404 main {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	section{
+		align-items: center;
+		display: flex;
+		.wp-block-button{
+			text-align: center;
+			width: 100%;
+		}
+	}
+}

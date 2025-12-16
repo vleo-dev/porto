@@ -73,7 +73,7 @@
 		</section>
 	<?php endif; ?>
 
-	<section class="projects">
+	<section class="projects" id="projects">
 		<?php if ( !empty( $webs ) ): ?>
 			<div class="container reveal">
 				<h2 class="dark"><?php echo "Projets"; ?></h2>
@@ -109,7 +109,7 @@
 		<?php endif; ?>
 	</section>
 
-	<section class="history">
+	<section class="history" id="history">
 		<div class="container reveal">
 			<h2><?php echo "Parcours Pro"; ?></h2>
 
@@ -146,7 +146,7 @@
 					</div>
 				</div>
 				<div class="content">
-					<h3>avr 2016 – aoüt 2018</h3>
+					<h3>avr 2016 – août 2018</h3>
 					<p>Stage Développeur WEB -- CGI -- Auchan E - Commerce</p>
 				</div>
 			</div>
@@ -179,7 +179,7 @@
 		</div>
 	</section>
 
-	<section class="contact">
+	<section class="contact" id="contact">
 		<div class="container reveal">
 			<h2 class="dark"><?php echo "Contact"; ?></h2>
 			<?php echo do_shortcode( '[contact-form-7 id="150f58e" title="Contact"]' ); ?>
