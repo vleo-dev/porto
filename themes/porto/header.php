@@ -23,7 +23,7 @@
 <head>
 	<meta charset="<?php echo esc_attr( get_bloginfo( 'charset' ) ) ?>">
 
-	<title><?php wp_title( '' ) ?></title>
+	<title><?php wp_title('|', true, 'right'); ?>Léo Vuylsteker | Développeur Web</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover">
 
 	<?php wp_head() ?>

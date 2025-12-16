@@ -60,11 +60,9 @@
             const sectionVisible = rect.top < window.innerHeight && rect.bottom > 0;
 
             if (sectionVisible) {
-                // Scroll → progress
                 targetProgress += e.deltaY * 0.002;
                 targetProgress = Math.min(Math.max(targetProgress, 0), 1);
 
-                // Empêche scroll normal uniquement si la lune n'est pas encore presque finie
                 if (targetProgress > 0 && targetProgress < 0.95) {
                     e.preventDefault();
                 }
@@ -85,5 +83,93 @@
     });
 
 
+    document.addEventListener('DOMContentLoaded', () => {
+        // tous les inputs et textarea
+        const fields = document.querySelectorAll('.wpcf7-form input[type="text"], .wpcf7-form input[type="email"], .wpcf7-form textarea');
+
+        fields.forEach(field => {
+            const label = field.previousElementSibling; // prend le label juste avant
+
+            if (!label) return;
+
+            // au focus
+            field.addEventListener('focus', () => {
+                label.style.color = '#6C5BFF'; // Third Color violet spatial
+                label.style.transform = 'scale(1.05)';
+                label.style.transition = 'all 0.3s ease';
+            });
+
+            // au blur
+            field.addEventListener('blur', () => {
+                label.style.color = '#1A1F3D'; // couleur normale
+                label.style.transform = 'scale(1)';
+            });
+        });
+    });
+
+    //MENU MOBILE
+    const burger = document.getElementById("burger");
+    const nav = document.querySelector(".header__nav");
+
+    burger.addEventListener("click", () => {
+        burger.classList.toggle("active");
+        nav.classList.toggle("open");
+        document.body.classList.toggle("menu-open");
+    });
+    
+
+    //ANCHORS
+    document.addEventListener('DOMContentLoaded', () => {
+        const header = document.querySelector('header');
+        const headerHeight = header ? header.offsetHeight : 0;
+
+        document.querySelectorAll('a[href*="#"]').forEach(link => {
+            link.addEventListener('click', e => {
+                const url = new URL(link.href);
+                const isSamePage = url.pathname === window.location.pathname;
+
+                if (!isSamePage) return;
+                const target = document.querySelector(url.hash);
+
+                if (!target) return;
+
+                e.preventDefault();
+
+                nav.classList.remove("open");
+                document.body.classList.remove('menu-open');
+                burger.classList.remove("active");
+                
+                const y =
+                    target.getBoundingClientRect().top +
+                    window.pageYOffset -
+                    headerHeight - 10;
+                window.scrollTo({
+                    top: y,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    });
+
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+
+        sections.forEach(section => {
+            const top = section.offsetTop - 100;
+            if (scrollY >= top) {
+                current = section.id;
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.toggle(
+                'is-active',
+                link.getAttribute('href') === `#${current}`
+            );
+        });
+    });
 
 })();
