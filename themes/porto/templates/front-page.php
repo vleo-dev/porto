@@ -75,7 +75,7 @@
 
 	<section class="projects" id="projects">
 		<?php if ( !empty( $webs ) ): ?>
-			<div class="container reveal">
+			<div class="container__big reveal">
 				<h2 class="dark"><?php echo "Projets"; ?></h2>
 				<div class="projects__desc">
 					<p><?php echo $car_desc; ?></p>
@@ -88,10 +88,11 @@
 							<?php
 								$web_title = get_field( 'title', $web->ID );
 								$web_short = get_field( 'short_desc', $web->ID ); 
-								$web_img = get_field( 'image', $web->ID ); 
+								$web_img = get_field( 'image', $web->ID );
+								$web_link = get_permalink( $web->ID );
 							?>
 							<div class="swiper-slide">
-								<div class="web-content">
+								<a href="<?php echo esc_url( $web_link ); ?>" class="web-content">
 									
 									<div class="web-content__img">
 										<img src="<?php echo $web_img['url']; ?>" alt="<?php echo $web_title; ?>"/>
@@ -99,7 +100,7 @@
 											<h3 class="web-content__title"><?php echo $web_title; ?></h3>
 										</div>
 									</div>
-								</div>
+								</a>
 							</div>
 						<?php endforeach; ?>
 					</div>

@@ -1,0 +1,56 @@
+.single-web {
+
+	.ban,
+	.main_desc,
+	.edito_part{
+		color: var(--wp--preset--color--main-color);
+		font-family: var(--wp--preset--font-family--base);
+		font-size: var(--wp--preset--font-size--large);
+	}
+	.main_desc{
+		text-align: center;
+	}
+
+	.edito_part{
+		img{
+			border-radius: 20px;
+
+		}
+	}
+
+	.ban {
+		width: 100%;
+		margin-top: 0;
+		height: 50vh;
+		position: relative;
+
+		&__image {
+			width: 100%;
+			height: 100%;
+			display: block;
+			object-fit: cover;
+		}
+
+		&::after {
+			content: "";
+			position: absolute;
+			inset: 0;
+			background: rgba(0, 0, 0, 0.35); 
+			z-index: 1;
+		}
+
+		&__title {
+			position: absolute;
+			inset: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+			color: #fff;
+			font-size: clamp(2rem, 5vw, 3rem);
+			z-index: 2;
+			margin: 0;
+			padding: 0 1rem;
+		}
+	}
+}

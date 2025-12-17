@@ -1,10 +1,12 @@
 <?php 
-  $webs = get_field( 'webs_elements' ); 
+  $webs = get_field( 'webs_elements', 15 ); 
 ?>
 <header>
   <div class="header__container">
     <div class="header__logo">
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/astro-gus.png" alt="logo_cat" title="logo_cat" />
+      <a href="<?php echo home_url('/'); ?>">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/astro-gus.png" alt="logo_cat" title="logo_cat" />
+      </a>
     </div>
     <div class="burger" id="burger">
       <span></span><span></span><span></span>
