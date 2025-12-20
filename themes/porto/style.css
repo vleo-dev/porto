@@ -145,7 +145,7 @@ nav a.is-active::after {
   .header__nav {
     position: fixed !important;
     top: 0;
-    right: -100%;
+    right: -110%;
     height: 100vh;
     width: 100%;
     /* optionnel */
@@ -200,7 +200,6 @@ nav a.is-active::after {
 footer {
   background-color: var(--wp--preset--color--second-color);
   color: var(--wp--preset--color--main-typo);
-  width: 100%;
   display: flex;
   justify-content: center;
   padding: 2rem 1rem;
