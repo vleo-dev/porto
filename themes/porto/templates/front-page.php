@@ -147,7 +147,7 @@
 					</div>
 				</div>
 				<div class="content">
-					<h3>avr 2016 – août 2018</h3>
+					<h3>avr 2016 – sept 2016</h3>
 					<p>Stage Développeur WEB -- CGI -- Auchan E - Commerce</p>
 				</div>
 			</div>
