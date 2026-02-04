@@ -298,10 +298,10 @@ footer .cv a:hover {
   position: relative;
   z-index: 3;
   color: var(--wp--preset--color--main-typo);
-  max-width: 33%;
+  max-width: 100%;
   font-size: 1.25rem;
   line-height: 1.6;
-  padding: 0 40px;
+  padding: 0 20%;
   text-align: center;
   font-size: var(--wp--preset--font-size--x-large);
 }
@@ -359,30 +359,35 @@ footer .cv a:hover {
 .page-template-front-page .hp_content .presentation .container .btn {
   margin-top: 1rem;
 }
-.page-template-front-page .hp_content .presentation .floating-shape {
-  position: absolute;
-  border-radius: 50%;
-  background-color: var(--wp--preset--color--main-typo);
-  animation: float 6s ease-in-out infinite;
-  opacity: 0.15;
-}
-.page-template-front-page .hp_content .presentation .floating-shape.shape-1 {
-  width: 40px;
-  height: 40px;
-  top: 10%;
-  left: 15%;
-}
-.page-template-front-page .hp_content .presentation .floating-shape.shape-2 {
-  width: 60px;
-  height: 60px;
-  top: 30%;
-  right: 10%;
-}
-.page-template-front-page .hp_content .presentation .floating-shape.shape-3 {
-  width: 70px;
-  height: 70px;
-  top: 80%;
-  left: 35%;
+.page-template-front-page .hp_content .presentation {
+  /*.floating-shape {
+  	position: absolute;
+  	border-radius: 50%;
+  	background-color: var(--wp--preset--color--main-typo);
+  	animation: float 6s ease-in-out infinite;
+  	opacity: 0.15;
+
+  	&.shape-1 {
+  		width: 40px;
+  		height: 40px;
+  		top: 10%;
+  		left: 15%;
+  	}
+
+  	&.shape-2 {
+  		width: 60px;
+  		height: 60px;
+  		top: 30%;
+  		right: 10%;
+  	}
+
+  	&.shape-3 {
+  		width: 70px;
+  		height: 70px;
+  		top: 80%;
+  		left: 35%;
+  	}
+  }*/
 }
 .page-template-front-page .hp_content .projects {
   z-index: 10;
@@ -886,6 +891,21 @@ body .cursor-follower::after {
   top: 0;
   left: 0;
   z-index: 5;
+}
+
+#light-pillar-vue {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100% !important;
+  z-index: 2;
+  pointer-events: none;
+}
+#light-pillar-vue canvas {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
 }
 
 .error404 {

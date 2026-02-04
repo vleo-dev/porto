@@ -31,10 +31,10 @@
 				position: relative;
 				z-index: 3;
 				color: var(--wp--preset--color--main-typo);
-				max-width: 33%;
+				max-width: 100%;
 				font-size: 1.25rem;
 				line-height: 1.6;
-				padding: 0 40px;
+				padding: 0 20%;
 				text-align: center;
 				font-size: var(--wp--preset--font-size--x-large);
 				@media (max-width: 768px) {
@@ -99,7 +99,7 @@
 				}
 			}
 
-			.floating-shape {
+			/*.floating-shape {
 				position: absolute;
 				border-radius: 50%;
 				background-color: var(--wp--preset--color--main-typo);
@@ -126,7 +126,7 @@
 					top: 80%;
 					left: 35%;
 				}
-			}
+			}*/
 		}
 
 		.projects {

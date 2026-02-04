@@ -45,7 +45,7 @@
         sections.forEach(section => observer.observe(section));
     });
 
-    document.addEventListener("DOMContentLoaded", () => {
+    /*document.addEventListener("DOMContentLoaded", () => {
         const moon = document.querySelector(".moon");
         const moonSection = document.querySelector(".main-pres");
         let progress = 0.05; // légèrement hors écran au départ
@@ -80,7 +80,7 @@
         }
 
         animate();
-    });
+    });*/
 
 
     document.addEventListener('DOMContentLoaded', () => {

@@ -23,18 +23,13 @@
 	$webs = get_field( 'webs_elements' ); 
 	
 ?>
-
 <main class="hp_content">
 	<section class="main-pres">
-		<div class="mains-pres__img">
-			<img src="<?php echo $main_img['url']; ?>" />
-		</div>
-
+		<div id="light-pillar-vue"></div>
 		<div class="main-pres__desc">
 			<p><?php echo $main_desc; ?></p>
 
 		</div>
-		<div class="moon"></div>
 	</section>
 	<div id="particles-part"></div>
 	<section class="presentation" id="presentation">
