@@ -113,4 +113,43 @@ body{
 			font-size: var(--wp--preset--font-size--xx-large);
 		}
 	}
+
+	.cursor-follower {
+		width: 30px;
+		height: 30px;
+		background: #fff;
+		border-radius: 50%;
+		position: fixed;
+		pointer-events: none;
+		z-index: 9999;
+		transform: translate(-50%, -50%);
+		box-shadow:
+			0 0 20px #fff,
+			0 0 40px #00d4ff,
+			0 0 60px #00d4ff;
+		mix-blend-mode: screen;
+		&::after{
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 100%;
+			height: 100%;
+			background: var(--wp--preset--color--third-color);
+			border-radius: 50%;
+			transform: translate(-30%, -30%);
+			filter: blur(10px);
+			opacity: 0.7;
+			z-index: -1;
+		}
+	}
+}
+
+#particles-part {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 5;
 }

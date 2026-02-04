@@ -25,7 +25,6 @@
 ?>
 
 <main class="hp_content">
-
 	<section class="main-pres">
 		<div class="mains-pres__img">
 			<img src="<?php echo $main_img['url']; ?>" />
@@ -37,9 +36,9 @@
 		</div>
 		<div class="moon"></div>
 	</section>
-
+	<div id="particles-part"></div>
 	<section class="presentation" id="presentation">
-		<div class="container reveal">
+		<div class="container reveal" id="particles-js">
 			<h2><?php echo $title; ?></h2>
 			<p class="presentation__desc"><?php echo $st01_desc; ?></p>
 			<a class="btn btn-light" href="#skills"><?php echo 'Continuer'; ?></a>
