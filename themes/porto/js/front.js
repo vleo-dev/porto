@@ -172,4 +172,38 @@
         });
     });
 
+    //Cursor Follower
+    document.addEventListener('DOMContentLoaded', () => {
+        const cursor = document.querySelector('.cursor-follower');
+        let mouseX = 0, mouseY = 0;
+        let currentX = 0, currentY = 0;
+
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animate() {
+            currentX += (mouseX - currentX) * 0.05;
+            currentY += (mouseY - currentY) * 0.05;
+
+            if (cursor) {
+                cursor.style.left = `${currentX}px`;
+                cursor.style.top = `${currentY}px`;
+
+                const velocity = Math.sqrt(Math.pow(mouseX - currentX, 2) + Math.pow(mouseY - currentY, 2));
+                const scale = 1 + velocity / 500;
+                cursor.style.transform = `translate(-50%, -50%) scale(${scale})`;
+            }
+
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+
+        particlesJS.load('particles-part', 'wp-content/themes/porto/assets/particles.json', function () {
+            console.log('callback - particles.js config loaded');
+        });
+    });
+
 })();
