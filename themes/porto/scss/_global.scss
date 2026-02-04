@@ -153,3 +153,18 @@ body{
 	left: 0;
 	z-index: 5;
 }
+
+#light-pillar-vue {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100% !important;
+	z-index: 2;
+	pointer-events: none;
+	canvas {
+		width: 100% !important;
+		height: 100% !important;
+		object-fit: cover;
+	}
+}

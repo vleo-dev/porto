@@ -1,7 +1,6 @@
 
 <?php defined( 'ABSPATH' ) || exit; ?>
 <footer>
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <div class="footer__container">
     <span class="linkedin">
       <a href="https://www.linkedin.com/in/l%C3%A9o-vuylsteker-aa853910b/" target="_blank" rel="noopener noreferrer">
@@ -23,5 +22,6 @@
 </footer>
 	<?php wp_footer() ?>
   <div class="cursor-follower"></div>
+  <div id="global-splash-cursodddr"></div>
 </body>
 </html>
