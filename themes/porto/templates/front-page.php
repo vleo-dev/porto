@@ -25,7 +25,7 @@
 ?>
 <main class="hp_content">
 	<section class="main-pres">
-		<div id="light-pillar-vue"></div>
+		<div id="floating_lines-vue"></div>
 		<div class="main-pres__desc">
 			<p><?php echo $main_desc; ?></p>
 

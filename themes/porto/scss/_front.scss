@@ -28,6 +28,7 @@
 			}
 
 			&__desc {
+				pointer-events: none;
 				position: relative;
 				z-index: 3;
 				color: var(--wp--preset--color--main-typo);

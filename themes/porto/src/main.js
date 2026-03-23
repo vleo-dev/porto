@@ -1,15 +1,29 @@
 import { createApp } from 'vue';
-import AppPillar from './App.vue';
-import AppSplash from './AppSplash.vue';
+import AppFloat from './AppFloatingLines.vue';
+import SkillCardWrapper from './SkillCardWrapper.vue';
 
-// Montage 1 : Le fond dans le header
-createApp(AppPillar).mount('#light-pillar-vue');
+const skillMounts = document.querySelectorAll('.vue-skill-card-mount');
 
-// Montage 2 : Le fluide dans le footer (partout)
-setTimeout(() => {
-	const splashEl = document.getElementById('global-splash-cursor');
-	if (splashEl) {
-		console.log("Tentative de montage du Splash...");
-		createApp(AppSplash).mount(splashEl);
+const initApps = () => {
+	// 1. Montage Galaxy
+	const AppFloatEl = document.getElementById('floating_lines-vue');
+	if (AppFloatEl) {
+		createApp(AppFloat).mount(AppFloatEl);
 	}
-}, 500); // On attend 500ms
+};
+
+skillMounts.forEach((el) => {
+	const content = el.innerHTML;
+	el.innerHTML = ''; // On vide
+
+	createApp(SkillCardWrapper, {
+		phpContent: content // On passe la variable ici
+	}).mount(el);
+});
+
+// On lance l'initialisation dès que le document est prêt
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+	initApps();
+} else {
+	document.addEventListener('DOMContentLoaded', initApps);
+}

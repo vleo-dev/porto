@@ -1,8 +1,8 @@
 <template>
   <div style="width: 100%; height: 100%; position: relative; background: #000;">
     <LightPillar
-		topColor="#9437ff"
-		bottomColor="#9EF19E"
+		topColor="#C81D77"
+		bottomColor="#432371"
 		:intensity="0.85"
 		:rotationSpeed="1.2"
 		:glowAmount="0.005"
