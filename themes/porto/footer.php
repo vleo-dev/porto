@@ -1,5 +1,5 @@
 
-<?php defined( 'ABSPATH' ) || exit; ?>
+<?php defined('ABSPATH') || exit; ?>
 <footer>
   <div class="footer__container">
     <span class="linkedin">
@@ -10,11 +10,11 @@
     </span>
 
     <span class="copyright">
-      © 2025 Léo Vuylsteker. All rights reserved.
+      © 2026 Léo Vuylsteker. All rights reserved.
     </span>
 
     <span class="cv">
-      <a href="http://vleo-dev.fr/wp-content/uploads/2025/12/cv-vuylsteker-2025.pdf" target="_blank" rel="noopener noreferrer">
+      <a href="http://vleo-dev.fr/wp-content/uploads/2026/03/cv-vuylsteker-2026.pdf" target="_blank" rel="noopener noreferrer">
         Télécharger mon CV
       </a>
     </span>
@@ -23,5 +23,6 @@
 	<?php wp_footer() ?>
   <div class="cursor-follower"></div>
   <div id="global-splash-cursodddr"></div>
+
 </body>
 </html>
