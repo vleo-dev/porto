@@ -1,21 +1,43 @@
 header {
-	z-index: 10;
-	position: relative;
-	background-color: var(--wp--preset--color--second-color);
-	color: var(--wp--preset--color--main-typo);
+	box-sizing: border-box;
+	z-index: 100;
+	position: fixed;
+	top: 0;
+	left: 0;
 	width: 100%;
 	display: flex;
 	justify-content: center;
-	padding: 1rem 0;
+	padding: 1.25rem 1rem;
+	background-color: transparent;
 
 
 	.header__container {
+		position: relative;
+		box-sizing: border-box;
 		width: 100%;
 		max-width: 1200px;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: 0 1rem;
+		padding: 0.6rem 0.75rem 0.6rem 1.25rem;
+		color: var(--wp--preset--color--main-typo);
+
+		/* Le fond "verre" est sur un pseudo-élément plutôt que directement ici :
+		   un backdrop-filter sur ce conteneur créerait un containing block pour
+		   .header__nav (position:fixed en mobile), ce qui le décale de l'écran. */
+		&::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			z-index: -1;
+			border-radius: 60px;
+			background: rgba(26, 31, 61, 0.6);
+			backdrop-filter: blur(20px);
+			-webkit-backdrop-filter: blur(20px);
+			border: 1px solid rgba(108, 91, 255, 0.25);
+			box-shadow: 0 15px 40px -20px rgba(11, 12, 31, 0.6);
+			transition: background 0.3s ease, box-shadow 0.3s ease;
+		}
 	}
 
 
@@ -25,13 +47,18 @@ header {
 
 
 		img {
-			width: 70px;
-			height: 70px;
+			width: 56px;
+			height: 56px;
 			object-fit: cover;
 			border-radius: 50%;
-			border: 3px solid #fff;
-			box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+			border: 2px solid rgba(244, 239, 255, 0.8);
+			box-shadow: 0 0 16px rgba(108, 91, 255, 0.5);
 			background: #fff;
+			transition: transform 0.3s ease;
+		}
+
+		&:hover img {
+			transform: scale(1.06) rotate(-4deg);
 		}
 	}
 
@@ -44,22 +71,28 @@ header {
 
 		ul {
 			display: flex;
-			gap: 2rem;
+			align-items: center;
+			gap: 0.25rem;
 			list-style: none;
 			overflow: visible;
 
 			li {
 				position: relative;
-				padding-bottom: 0.5rem;
+				padding-bottom: 0;
 
 				a {
+					display: inline-block;
+					position: relative;
 					text-decoration: none;
 					color: var(--wp--preset--color--main-typo);
 					font-weight: 600;
-					transition: opacity 0.3s;
+					font-size: 0.95rem;
+					padding: 0.55rem 1.1rem;
+					border-radius: 40px;
+					transition: background 0.3s ease, color 0.3s ease;
 
 					&:hover {
-						opacity: 0.7;
+						background: rgba(108, 91, 255, 0.25);
 					}
 				}
 
@@ -70,21 +103,37 @@ header {
 					top: 100%;
 					left: 0;
 					z-index: 1000;
-					margin-top: -2px;
 
-					background: var(--wp--preset--color--second-color);
-					padding: 0.5rem 1rem;
-					border-radius: 6px;
-					box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+					background: rgba(26, 31, 61, 0.85);
+					backdrop-filter: blur(18px);
+					-webkit-backdrop-filter: blur(18px);
+					/* le padding-top (au lieu d'un gap via `top`) garde la zone
+					   de survol continue entre le lien et le sous-menu */
+					padding: 1.35rem 0.6rem 0.6rem;
+					border-radius: 18px;
+					border: 1px solid rgba(108, 91, 255, 0.25);
+					box-shadow: 0 20px 40px -15px rgba(11, 12, 31, 0.6);
 
 					opacity: 0;
 					pointer-events: none;
-					transform: translateY(6px);
-					transition: opacity 0.2s ease, transform 0.2s ease;
+					transform: translateY(8px) scale(0.97);
+					transform-origin: top left;
+					transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
 
 					li {
-						padding: 0.5rem 0;
-						white-space: nowrap;
+						padding: 0;
+
+						a {
+							display: block;
+							padding: 0.5rem 0.9rem;
+							white-space: nowrap;
+							border-radius: 10px;
+							font-size: 0.9rem;
+
+							&:hover {
+								background: rgba(108, 91, 255, 0.3);
+							}
+						}
 					}
 				}
 
@@ -92,7 +141,7 @@ header {
 				&:focus-within>ul {
 					opacity: 1;
 					pointer-events: auto;
-					transform: translateY(0);
+					transform: translateY(0) scale(1);
 				}
 			}
 		}
@@ -110,15 +159,20 @@ nav a {
 	position: relative;
 }
 
+nav a.is-active {
+	background: rgba(108, 91, 255, 0.35);
+}
+
 nav a.is-active::after {
 	content: '';
 	position: absolute;
-	left: 0;
-	bottom: -4px;
-	width: 100%;
-	height: 2px;
+	left: 50%;
+	bottom: 3px;
+	transform: translateX(-50%);
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
 	background: currentColor;
-	opacity: 0.6;
 }
 
 
@@ -138,7 +192,7 @@ nav a.is-active::after {
 // -----------------------------------------
 
 .header__burger {
-	display: none; 
+	display: none;
 	flex-direction: column;
 	gap: 6px;
 	background: none;
@@ -178,6 +232,11 @@ nav a.is-active::after {
 		overflow: hidden;
 		width: 100%;
 	}
+
+	.header__container::before {
+		border-radius: 30px;
+	}
+
 	/* On masque le menu desktop */
 	.header__nav nav ul {
 		display: none;
@@ -190,11 +249,12 @@ nav a.is-active::after {
 		right: -110%;
 		height: 100vh;
 		width: 100%;
-		/* optionnel */
-		background: var(--wp--preset--color--second-color);
-		padding-top: 5rem;
+		background: rgba(11, 12, 31, 0.92);
+		backdrop-filter: blur(20px);
+		-webkit-backdrop-filter: blur(20px);
+		padding-top: 6rem;
 		padding-left: 2rem;
-		transition: right 0.75s ease;
+		transition: right 0.5s cubic-bezier(0.65, 0, 0.35, 1);
 		z-index: 9999;
 		display: flex;
 		align-items: flex-start;
@@ -208,7 +268,23 @@ nav a.is-active::after {
 	.header__nav.open nav ul {
 		display: flex;
 		flex-direction: column;
-		gap: 1.5rem;
+		gap: 0.75rem;
+		width: 100%;
+	}
+
+	.header__nav nav ul li {
+		width: 100%;
+	}
+
+	.header__nav nav ul li a {
+		font-size: 1.5rem;
+		padding: 0.6rem 0;
+		border-radius: 0;
+
+		&:hover {
+			background: none;
+			opacity: 0.7;
+		}
 	}
 
 	/* Burger */
@@ -219,6 +295,11 @@ nav a.is-active::after {
 		cursor: pointer;
 		width: 32px;
 		z-index: 10000;
+		transition: opacity 0.2s ease;
+
+		&:hover {
+			opacity: 0.75;
+		}
 	}
 
 	.burger span {
@@ -226,6 +307,7 @@ nav a.is-active::after {
 		height: 3px;
 		width: 100%;
 		background: var(--wp--preset--color--main-typo);
+		border-radius: 2px;
 		transition: .3s;
 	}
 
@@ -241,9 +323,50 @@ nav a.is-active::after {
 		transform: translateY(-9px) rotate(-45deg);
 	}
 
+	.header__nav nav ul li:has(> ul) > a {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+
+		&::after {
+			content: '';
+			flex-shrink: 0;
+			width: 12px;
+			height: 12px;
+			background-color: currentColor;
+			-webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 8l8 8 8-8'/%3E%3C/svg%3E") no-repeat center / contain;
+			mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 8l8 8 8-8'/%3E%3C/svg%3E") no-repeat center / contain;
+			transition: transform 0.3s ease;
+		}
+	}
+
+	.header__nav nav ul li.submenu-open > a::after {
+		transform: rotate(180deg);
+	}
+
 	.header__nav nav ul li ul {
+		position: static;
 		display: block;
+		max-height: 0;
+		overflow: hidden;
+		opacity: 1;
+		pointer-events: auto;
+		transform: none;
+		background: none;
+		backdrop-filter: none;
+		border: none;
+		box-shadow: none;
 		padding-left: 1rem;
+		margin-top: 0;
+		transition: max-height 0.4s ease, margin-top 0.4s ease;
+
+		li a {
+			font-size: 1.1rem;
+		}
+	}
+
+	.header__nav nav ul li.submenu-open > ul {
+		max-height: 400px;
 		margin-top: 0.5rem;
 	}
 }

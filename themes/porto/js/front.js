@@ -1,5 +1,14 @@
 ;(function () {
 
+    //PAGE SPLASH
+    const splash = document.getElementById('page-splash');
+    if (splash) {
+        setTimeout(() => {
+            splash.classList.add('is-hidden');
+            setTimeout(() => splash.remove(), 700);
+        }, 2200);
+    }
+
     const projectsSwiper = document.querySelectorAll('.projectsSwiper .swiper-slide');
 
     if (projectsSwiper.length > 1) {
@@ -125,6 +134,21 @@
 
         document.querySelectorAll('a[href*="#"]').forEach(link => {
             link.addEventListener('click', e => {
+                // Sur mobile, un lien avec sous-menu s'ouvre d'abord au tap
+                // au lieu de naviguer directement (sinon impossible d'atteindre les sous-liens).
+                const parentLi = link.parentElement;
+                const submenu = parentLi && parentLi.querySelector(':scope > ul');
+                const isMobileNav = window.matchMedia('(max-width: 768px)').matches;
+
+                if (submenu && isMobileNav && !parentLi.classList.contains('submenu-open')) {
+                    e.preventDefault();
+                    document.querySelectorAll('.header__nav li.submenu-open').forEach(li => {
+                        if (li !== parentLi) li.classList.remove('submenu-open');
+                    });
+                    parentLi.classList.toggle('submenu-open');
+                    return;
+                }
+
                 const url = new URL(link.href);
                 const isSamePage = url.pathname === window.location.pathname;
 
@@ -138,7 +162,8 @@
                 nav.classList.remove("open");
                 document.body.classList.remove('menu-open');
                 burger.classList.remove("active");
-                
+                document.querySelectorAll('.header__nav li.submenu-open').forEach(li => li.classList.remove('submenu-open'));
+
                 const y =
                     target.getBoundingClientRect().top +
                     window.pageYOffset -

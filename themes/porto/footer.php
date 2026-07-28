@@ -4,7 +4,7 @@
   <div class="footer__container">
     <span class="linkedin">
       <a href="https://www.linkedin.com/in/l%C3%A9o-vuylsteker-aa853910b/" target="_blank" rel="noopener noreferrer">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/linkedin_logo.png"" alt="LinkedIn" title="LinkedIn">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/linkedin_logo.png" alt="LinkedIn" title="LinkedIn">
         Mon LinkedIn
       </a>
     </span>
@@ -22,7 +22,7 @@
 </footer>
 	<?php wp_footer() ?>
   <div class="cursor-follower"></div>
-  <div id="global-splash-cursodddr"></div>
+  <div id="global-splash-cursor"></div>
 
 </body>
 </html>

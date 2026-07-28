@@ -37,6 +37,26 @@ body{
 		}
 	}
 
+	%btn-cosmic {
+		display: inline-block;
+		background: linear-gradient(135deg, var(--wp--preset--color--third-color), var(--wp--preset--color--second-color));
+		color: var(--wp--preset--color--main-typo);
+		font-weight: bold;
+		border: none;
+		padding: 1rem 3rem;
+		border-radius: 50px;
+		text-decoration: none;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		font-size: 1.1rem;
+
+		&:hover {
+			color: var(--wp--preset--color--main-typo);
+			box-shadow: 0 12px 30px -8px rgba(108, 91, 255, 0.6);
+			transform: translateY(-3px);
+		}
+	}
+
 	.btn {
 		position: relative;
 		display: inline-block;
@@ -70,7 +90,7 @@ body{
 		}
 
 		&.btn-pale {
-			background-color: #d6e1f2; 
+			background-color: #d6e1f2;
 			color: #8C7154;
 
 			&:hover {
@@ -78,6 +98,15 @@ body{
 				transform: translateY(-2px);
 			}
 		}
+
+		&.btn-cosmic {
+			@extend %btn-cosmic;
+		}
+	}
+
+	// Style de bloc Gutenberg "Cosmique" (register_block_style, core/button)
+	.wp-block-button.is-style-cosmic .wp-block-button__link {
+		@extend %btn-cosmic;
 	}
 
 	main {
@@ -152,17 +181,6 @@ body{
 	top: 0;
 	left: 0;
 	z-index: 5;
-}
-
-.page-template-front-page .hp_content .main-pres {
-	z-index: 10;
-	position: relative;
-	height: 90vh;
-	overflow: hidden;
-	display: flex;
-	align-items: center;
-	justify-content: flex-start;
-	padding-left: 3rem;
 }
 
 /* On force la Galaxy à être le tapis de fond */

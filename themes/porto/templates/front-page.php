@@ -46,7 +46,7 @@
 	<?php if ( !empty($skills) && !is_wp_error($skills) ): ?>
 		<section class="skills" id="skills">
 			<div class="container reveal">
-				<h2 class="dark"><?php echo "Compétences"; ?></h2>
+				<h2><?php echo "Compétences"; ?></h2>
 				<div class="skills-grid">
 					<?php foreach($skills as $skill):
 						$desc = get_field('desc', $skill);
@@ -70,7 +70,7 @@
 	<section class="projects" id="projects">
 		<?php if ( !empty( $webs ) ): ?>
 			<div class="container__big reveal">
-				<h2 class="dark"><?php echo "Projets"; ?></h2>
+				<h2><?php echo "Projets"; ?></h2>
 				<div class="projects__desc">
 					<p><?php echo $car_desc; ?></p>
 				</div>
@@ -81,17 +81,23 @@
 						<?php foreach( $webs as $web ) : ?>
 							<?php
 								$web_title = get_field( 'title', $web->ID );
-								$web_short = get_field( 'short_desc', $web->ID ); 
+								$web_short = get_field( 'short_desc', $web->ID );
 								$web_img = get_field( 'image', $web->ID );
 								$web_link = get_permalink( $web->ID );
+								$is_personal = get_field( 'is_personal', $web->ID );
+								$web_type_class = $is_personal ? 'web-content--personal' : 'web-content--agency';
 							?>
 							<div class="swiper-slide">
-								<a href="<?php echo esc_url( $web_link ); ?>" class="web-content">
+								<a href="<?php echo esc_url( $web_link ); ?>" class="web-content <?php echo $web_type_class; ?>">
 									
 									<div class="web-content__img">
 										<img src="<?php echo $web_img['url']; ?>" alt="<?php echo $web_title; ?>"/>
 										<div class="web-content__infos">
 											<h3 class="web-content__title"><?php echo $web_title; ?></h3>
+											<?php if ( $web_short ) : ?>
+												<p class="web-content__short"><?php echo esc_html( $web_short ); ?></p>
+											<?php endif; ?>
+											<span class="web-content__cta">En savoir plus <i class="fa-solid fa-arrow-right"></i></span>
 										</div>
 									</div>
 								</a>

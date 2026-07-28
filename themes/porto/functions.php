@@ -29,3 +29,14 @@ function vdev_enqueue_styles_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'vdev_enqueue_styles_scripts' );
 
+function vdev_register_block_styles() {
+	register_block_style(
+		'core/button',
+		array(
+			'name'  => 'cosmic',
+			'label' => __( 'Cosmique', 'porto' ),
+		)
+	);
+}
+add_action( 'init', 'vdev_register_block_styles' );
+
